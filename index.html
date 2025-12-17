@@ -3,142 +3,195 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Aaruu 💗</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<title>For You 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-body{
-    margin:0;
-    font-family:'Poppins',sans-serif;
-    background:linear-gradient(180deg,#ffe4ec,#fff);
-    text-align:center;
-    color:#444;
+:root {
+    --bg1: #fdecef;
+    --bg2: #fff7f9;
+    --accent: #ff9eb5;
+    --text: #444;
 }
-section{
-    padding:60px 20px;
-    max-width:700px;
-    margin:auto;
-}
-h1,h2{font-weight:600;}
-p{font-size:18px;line-height:1.7;}
-button{
-    margin:12px;
-    padding:14px 26px;
-    border-radius:30px;
-    border:none;
-    font-size:16px;
-    background:#ff8fab;
-    color:white;
-    cursor:pointer;
-    transition:0.3s;
-}
-button:hover{
-    transform:scale(1.05);
-    background:#ff5d8f;
-}
-.hidden{display:none;}
 
-.heart{
-    position:fixed;
-    top:-20px;
-    font-size:18px;
-    animation:fall linear infinite;
-    opacity:0.7;
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(180deg, var(--bg1), var(--bg2));
+    color: var(--text);
+    text-align: center;
 }
-@keyframes fall{
-    to{transform:translateY(110vh);}
+
+.container {
+    max-width: 720px;
+    margin: auto;
+    padding: 70px 22px;
+}
+
+h1, h2 {
+    font-weight: 700;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.btn {
+    display: inline-block;
+    margin: 12px;
+    padding: 14px 26px;
+    border-radius: 40px;
+    background: var(--accent);
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background: #ff7f9e;
+}
+
+.hidden { display: none; }
+
+/* floating hearts */
+.heart {
+    position: fixed;
+    top: -20px;
+    font-size: 18px;
+    opacity: 0.5;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to { transform: translateY(110vh); }
 }
 </style>
 </head>
 
 <body>
 
-<section id="start">
-<h1>Hey Aaruu 🌷</h1>
-<p>
-Yes you.<br>
-My Babluuu 😌💗<br><br>
-This tiny page exists for only one reason…<br>
-To make you smile<br>
-(even if it’s a small, stubborn one)
-</p>
-<button onclick="show('mood')">✨ Continue ✨</button>
-</section>
+<!-- STEP 1 -->
+<div class="container" id="s1">
+    <h1>Hey Aaruuu 🤍</h1>
+    <p>
+        I know you’re angry.<br>
+        And yes… maybe slightly done with me 😭
+    </p>
+    <p>
+        But before you stay mad,<br>
+        just look at this once?
+    </p>
+    <button class="btn" onclick="go('s1','s2')">Okay 🙄</button>
+</div>
 
-<section id="mood" class="hidden">
-<h2>Aaruu, what mood are you in right now?</h2>
-<button onclick="show('annoyed')">😤 Annoyed but cute</button>
-<button onclick="show('silent')">😶 Pretending I’m not mad</button>
-<button onclick="show('forgive')">😌 I’ll forgive you… maybe</button>
-</section>
+<!-- STEP 2 -->
+<div class="container hidden" id="s2">
+    <p>
+        I promise this is not a lecture.<br>
+        Not an explanation.<br>
+        Not even a long sorry speech.
+    </p>
+    <p>
+        It’s just me being a little stupid<br>
+        and a little cute for you.
+    </p>
+    <button class="btn" onclick="go('s2','s3')">Continue 🤍</button>
+</div>
 
-<section id="annoyed" class="hidden">
-<h2>😤</h2>
-<p>
-Okay okay… Babluuu 👀<br><br>
-I know that face.<br>
-The <b>“I’m mad but still adorable”</b> one 😌<br><br>
-Just so you know —<br>
-someone out here is thinking about you<br>
-wayyy too much 💗
-</p>
-</section>
+<!-- STEP 3 -->
+<div class="container hidden" id="s3">
+    <h2>So tell me honestly…</h2>
+    <p>
+        What do you feel like doing<br>
+        after all this?
+    </p>
+    <button class="btn" onclick="go('s3','forgive')">I’ll forgive you 😌</button>
+    <button class="btn" onclick="go('s3','not1')">I won’t forgive you 😤</button>
+</div>
 
-<section id="silent" class="hidden">
-<h2>😶</h2>
-<p>
-Ah yes… Aaruu in silent mode 😌<br><br>
-Even when you don’t say much,<br>
-you’re still my favorite notification ✨
-</p>
-</section>
+<!-- FORGIVE DIRECT -->
+<div class="container hidden" id="forgive">
+    <h2>🥹🤍</h2>
+    <p>
+        That means more to me than you know.
+    </p>
+    <button class="btn" onclick="go('forgive','thanks')">Next</button>
+</div>
 
-<section id="forgive" class="hidden">
-<h2>😌</h2>
-<p>
-I like this mood already 👀<br><br>
-Take your time, Babluuu.<br>
-I’ll just be right here,<br>
-collecting smiles until you’re ready 🌸
-</p>
-</section>
+<!-- NOT FORGIVE LOOP 1 -->
+<div class="container hidden" id="not1">
+    <p>Are you sure? 😶</p>
+    <p>You can rethink my love once.</p>
+    <button class="btn" onclick="go('not1','not2')">Still no 😤</button>
+</div>
 
-<section id="game">
-<h2>Quick question for Aaruu 👇</h2>
-<p>Who’s the cutest?</p>
-<button onclick="correct()">😌 Aaruu</button>
-<button onclick="correct()">😌 Babluuu</button>
-<button onclick="correct()">😌 Obviously Aaruu-Babluuu</button>
-<p id="result"></p>
-</section>
+<div class="container hidden" id="not2">
+    <p>Okay okay… but just think again 🥺</p>
+    <p>You *do* like me a little.</p>
+    <button class="btn" onclick="go('not2','not3')">Nope 😤</button>
+</div>
 
-<section>
-<p>
-No matter the mood,<br>
-Aaruu will always be my favorite person 🤍
-</p>
-<button onclick="alert('Smile received from Babluuu 💕')">🤍 Tap when you smile</button>
-</section>
+<div class="container hidden" id="not3">
+    <p>Last last time 😭</p>
+    <p>I even made a whole website.</p>
+    <button class="btn" onclick="go('not3','not4')">Still angry 😠</button>
+</div>
+
+<div class="container hidden" id="not4">
+    <p>Okay wow.</p>
+    <p>But you’re smiling now… I know it 😌</p>
+    <button class="btn" onclick="go('not4','not5')">Don’t assume 😤</button>
+</div>
+
+<!-- FINAL NOT FORGIVE -->
+<div class="container hidden" id="not5">
+    <h2>Ab tu aaisa karegi aaruuuu 🥹</h2>
+    <p>
+        Itna pyaar se maine banaya,<br>
+        thoda sa toh pighal sakti hai na?
+    </p>
+    <p>
+        I know I mess up sometimes,<br>
+        but loving you is something<br>
+        I never get tired of.
+    </p>
+    <button class="btn" onclick="go('not5','forgive')">Okay I forgive you 🤍</button>
+</div>
+
+<!-- THANK YOU -->
+<div class="container hidden" id="thanks">
+    <h2>Thank you 🤍</h2>
+    <p>
+        For forgiving me.<br>
+        For being patient.<br>
+        For being you.
+    </p>
+    <p>
+        I’ll try to annoy you less.<br>
+        (No promises though 😌)
+    </p>
+</div>
 
 <script>
-function show(id){
-document.querySelectorAll('section').forEach(s=>s.classList.add('hidden'));
-document.getElementById(id).classList.remove('hidden');
-window.scrollTo({top:0,behavior:'smooth'});
+function go(a,b){
+    document.getElementById(a).classList.add('hidden');
+    document.getElementById(b).classList.remove('hidden');
+    window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function correct(){
-document.getElementById('result').innerHTML="Correct answer detected 💗";
-}
-
-// floating hearts
-for(let i=0;i<20;i++){
-let h=document.createElement('div');
-h.className='heart';
-h.innerHTML='🤍';
-h.style.left=Math.random()*100+'vw';
-h.style.animationDuration=(5+Math.random()*5)+'s';
-document.body.appendChild(h);
+// hearts
+for(let i=0;i<16;i++){
+    let h=document.createElement('div');
+    h.className='heart';
+    h.innerHTML='🤍';
+    h.style.left=Math.random()*100+'vw';
+    h.style.animationDuration=(6+Math.random()*6)+'s';
+    document.body.appendChild(h);
 }
 </script>
 
