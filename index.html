@@ -80,35 +80,51 @@ p {
     <h1>Hey Aaruuu 🤍</h1>
     <p>
         I know you’re angry.<br>
-        And yes… maybe slightly done with me 😭
+        Or annoyed.<br>
+        Or just very done with me 😭
     </p>
     <p>
-        But before you stay mad,<br>
-        just look at this once?
+        But since you’re already here,<br>
+        might as well continue?
     </p>
-    <button class="btn" onclick="go('s1','s2')">Okay 🙄</button>
+    <button class="btn" onclick="go('s1','mood')">Fine 🙄</button>
 </div>
 
-<!-- STEP 2 -->
-<div class="container hidden" id="s2">
-    <p>
-        I promise this is not a lecture.<br>
-        Not an explanation.<br>
-        Not even a long sorry speech.
-    </p>
-    <p>
-        It’s just me being a little stupid<br>
-        and a little cute for you.
-    </p>
-    <button class="btn" onclick="go('s2','s3')">Continue 🤍</button>
+<!-- MOOD CHECK -->
+<div class="container hidden" id="mood">
+    <h2>Okay, honest question…</h2>
+    <p>How is your mood right now?</p>
+
+    <button class="btn" onclick="go('mood','moodText')">😤 Still angry</button>
+    <button class="btn" onclick="go('mood','moodText')">😑 Neutral but judging</button>
+    <button class="btn" onclick="go('mood','moodText')">😌 Slightly soft</button>
 </div>
 
-<!-- STEP 3 -->
+<!-- MOOD RESPONSE -->
+<div class="container hidden" id="moodText">
+    <p>
+        No matter what you chose,<br>
+        I already know the truth.
+    </p>
+    <p>
+        You’re pretending to be tough,<br>
+        but somewhere inside<br>
+        you’re still my favourite human 🥺
+    </p>
+    <p>
+        And yes — I deserve a little scolding.<br>
+        But also… I deserve *some* mercy<br>
+        for being this cute, right? 😌
+    </p>
+    <button class="btn" onclick="go('moodText','s3')">Hmm okay →</button>
+</div>
+
+<!-- FORGIVE QUESTION -->
 <div class="container hidden" id="s3">
-    <h2>So tell me honestly…</h2>
+    <h2>So tell me now…</h2>
     <p>
-        What do you feel like doing<br>
-        after all this?
+        After all this drama,<br>
+        what do you feel like doing?
     </p>
     <button class="btn" onclick="go('s3','forgive')">I’ll forgive you 😌</button>
     <button class="btn" onclick="go('s3','not1')">I won’t forgive you 😤</button>
@@ -118,12 +134,13 @@ p {
 <div class="container hidden" id="forgive">
     <h2>🥹🤍</h2>
     <p>
-        That means more to me than you know.
+        Okay wow.<br>
+        That actually means a lot to me.
     </p>
     <button class="btn" onclick="go('forgive','thanks')">Next</button>
 </div>
 
-<!-- NOT FORGIVE LOOP 1 -->
+<!-- NOT FORGIVE LOOP -->
 <div class="container hidden" id="not1">
     <p>Are you sure? 😶</p>
     <p>You can rethink my love once.</p>
@@ -131,14 +148,14 @@ p {
 </div>
 
 <div class="container hidden" id="not2">
-    <p>Okay okay… but just think again 🥺</p>
+    <p>Okay but just think again 🥺</p>
     <p>You *do* like me a little.</p>
     <button class="btn" onclick="go('not2','not3')">Nope 😤</button>
 </div>
 
 <div class="container hidden" id="not3">
     <p>Last last time 😭</p>
-    <p>I even made a whole website.</p>
+    <p>I literally made a website.</p>
     <button class="btn" onclick="go('not3','not4')">Still angry 😠</button>
 </div>
 
@@ -148,7 +165,6 @@ p {
     <button class="btn" onclick="go('not4','not5')">Don’t assume 😤</button>
 </div>
 
-<!-- FINAL NOT FORGIVE -->
 <div class="container hidden" id="not5">
     <h2>Ab tu aaisa karegi aaruuuu 🥹</h2>
     <p>
@@ -156,8 +172,8 @@ p {
         thoda sa toh pighal sakti hai na?
     </p>
     <p>
-        I know I mess up sometimes,<br>
-        but loving you is something<br>
+        I mess up sometimes,<br>
+        but loving you is one thing<br>
         I never get tired of.
     </p>
     <button class="btn" onclick="go('not5','forgive')">Okay I forgive you 🤍</button>
