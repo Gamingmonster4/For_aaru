@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Aaruu 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(180deg,#ffe4ec,#fff);
+    text-align:center;
+    color:#444;
+}
+section{
+    padding:60px 20px;
+    max-width:700px;
+    margin:auto;
+}
+h1,h2{font-weight:600;}
+p{font-size:18px;line-height:1.7;}
+button{
+    margin:12px;
+    padding:14px 26px;
+    border-radius:30px;
+    border:none;
+    font-size:16px;
+    background:#ff8fab;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+button:hover{
+    transform:scale(1.05);
+    background:#ff5d8f;
+}
+.hidden{display:none;}
+
+.heart{
+    position:fixed;
+    top:-20px;
+    font-size:18px;
+    animation:fall linear infinite;
+    opacity:0.7;
+}
+@keyframes fall{
+    to{transform:translateY(110vh);}
+}
+</style>
+</head>
+
+<body>
+
+<section id="start">
+<h1>Hey Aaruu 🌷</h1>
+<p>
+Yes you.<br>
+My Babluuu 😌💗<br><br>
+This tiny page exists for only one reason…<br>
+To make you smile<br>
+(even if it’s a small, stubborn one)
+</p>
+<button onclick="show('mood')">✨ Continue ✨</button>
+</section>
+
+<section id="mood" class="hidden">
+<h2>Aaruu, what mood are you in right now?</h2>
+<button onclick="show('annoyed')">😤 Annoyed but cute</button>
+<button onclick="show('silent')">😶 Pretending I’m not mad</button>
+<button onclick="show('forgive')">😌 I’ll forgive you… maybe</button>
+</section>
+
+<section id="annoyed" class="hidden">
+<h2>😤</h2>
+<p>
+Okay okay… Babluuu 👀<br><br>
+I know that face.<br>
+The <b>“I’m mad but still adorable”</b> one 😌<br><br>
+Just so you know —<br>
+someone out here is thinking about you<br>
+wayyy too much 💗
+</p>
+</section>
+
+<section id="silent" class="hidden">
+<h2>😶</h2>
+<p>
+Ah yes… Aaruu in silent mode 😌<br><br>
+Even when you don’t say much,<br>
+you’re still my favorite notification ✨
+</p>
+</section>
+
+<section id="forgive" class="hidden">
+<h2>😌</h2>
+<p>
+I like this mood already 👀<br><br>
+Take your time, Babluuu.<br>
+I’ll just be right here,<br>
+collecting smiles until you’re ready 🌸
+</p>
+</section>
+
+<section id="game">
+<h2>Quick question for Aaruu 👇</h2>
+<p>Who’s the cutest?</p>
+<button onclick="correct()">😌 Aaruu</button>
+<button onclick="correct()">😌 Babluuu</button>
+<button onclick="correct()">😌 Obviously Aaruu-Babluuu</button>
+<p id="result"></p>
+</section>
+
+<section>
+<p>
+No matter the mood,<br>
+Aaruu will always be my favorite person 🤍
+</p>
+<button onclick="alert('Smile received from Babluuu 💕')">🤍 Tap when you smile</button>
+</section>
+
+<script>
+function show(id){
+document.querySelectorAll('section').forEach(s=>s.classList.add('hidden'));
+document.getElementById(id).classList.remove('hidden');
+window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function correct(){
+document.getElementById('result').innerHTML="Correct answer detected 💗";
+}
+
+// floating hearts
+for(let i=0;i<20;i++){
+let h=document.createElement('div');
+h.className='heart';
+h.innerHTML='🤍';
+h.style.left=Math.random()*100+'vw';
+h.style.animationDuration=(5+Math.random()*5)+'s';
+document.body.appendChild(h);
+}
+</script>
+
+</body>
+</html>
